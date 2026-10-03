@@ -14,11 +14,57 @@ fetch(url)
         const status = presente[2];
         const convidado = presente[3];
 
-        
-        console.log( id);
-        console.log(nome);
-        console.log(status);
-        console.log(convidado);
+        const card = document.createElement("div");
+
+        if(status === "Disponível"){
+            card.innerHTML = `
+                <h3>${nome}</h3>
+                <p>🟢DISPONÍVEL</p>
+                <button>🎁Escolher este presente</button>
+
+            `;
+            const botao = card.querySelector("button");
+            
+            botao.addEventListener("click", () => {
+
+                const campoNome = document.createElement("input");
+                campoNome.placeholder = "Digite seu nome:";
+
+                const botaoConfirmar = document.createElement("button");
+                botaoConfirmar.textContent = "🎁Confirmar presente";
+
+                card.appendChild(campoNome);
+                card.appendChild(botaoConfirmar);
+
+                botaoConfirmar.addEventListener("click", () =>{
+                    const nomeConvidado = campoNome.value;
+                                      
+
+                    fetch(url, {
+                        method: "POST",
+                        mode: "no-cors",
+                        body:JSON.stringify({
+                            id: id,
+                            nome: nomeConvidado
+                        })
+                    })
+                    .then( () => {
+                        console.log("dados enviados");
+                    });
+                })
+
+            });
+
+        } else{
+            card.innerHTML = `
+                <h3>${nome}</h3>
+                <p>🔴INDISPONÍVEL</p>
+                <p>Convidado: ${convidado}</p>
+
+            `;
+        }
+
+        lista.appendChild(card);    
 
     })
 })
