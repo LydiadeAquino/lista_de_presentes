@@ -20,6 +20,7 @@ function carregarPresentes(){
             const convidado = presente[3];
 
             const card = document.createElement("div");
+            card.classList.add("card-presente");
 
             if(status === "Disponível"){
                 card.innerHTML = `
@@ -31,6 +32,8 @@ function carregarPresentes(){
                 const botao = card.querySelector("button");
                 
                 botao.addEventListener("click", () => {
+
+                    botao.style.display = "none";
 
                     const campoNome = document.createElement("input");
                     campoNome.placeholder = "Digite seu nome:";
