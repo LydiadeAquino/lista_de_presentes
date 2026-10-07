@@ -1,5 +1,6 @@
 const url = "https://script.google.com/macros/s/AKfycbwqEKHWjqKzgm894xfr8A-JapLgX9cd39Fokb5yw-eEpZf-7OclQBVD55gHfSA0WeChWA/exec";
 
+let presentes = [];
 function carregarPresentes(){
     fetch(url)
     .then(resposta => resposta.json())
@@ -9,7 +10,8 @@ function carregarPresentes(){
 
         lista.innerHTML= "";
 
-        dados.slice(1).forEach(presente => {
+        presentes = dados.slice(1);
+        presentes.forEach(presente => {
     //slice(1) quer dizer "pegue uma cópia do array começando pelo índice 1", ou seja,
     //o primeiro índice[0] é o cabeçalho que tem a informação da coluna(ex:id,nome,status e convidado), não foi chamado.
     //obs: o slice não pega o primeiro elemento do array, ele pega o array inteiro da posição 1 e outros arrays seguintes.
@@ -78,5 +80,22 @@ function carregarPresentes(){
         });
     });
 }
+
+const pesquisa = document.getElementById("pesquisaPresente");
+
+pesquisa.addEventListener("input", () => {
+
+    const textoDigitado = pesquisa.value;
+    /*a função .filter() pega uma lista e cria uma nova lista que corresponde a condição que ela propõe.*/
+    const resultado = presentes.filter(presente => {
+
+        const nome = presente[1];
+    /*a função .includes() é uma pergunta para certo objeto que está usando e a pergunta é "Contém?"
+    se sim true e se não false. toLowerCse é uma função que mantém a string minúscula porque qualquer diferença
+    pode resultar em false */
+    return nome.toLowerCase().includes(textoDigitado.toLowerCase());
+    });
+    console.log(resultado);
+});
 
 carregarPresentes();

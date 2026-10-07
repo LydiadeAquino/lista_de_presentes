@@ -97,3 +97,23 @@ nav a{
     color: #8f6060;
     font-size: 14px;
 }
+
+section{
+    padding: 40px 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+#pesquisaPresente{
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 25px;
+    border: 1px solid #eadede;
+    border-radius: 25px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #fff;
+}
