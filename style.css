@@ -76,6 +76,15 @@ body{
     color: white;
     font-size: 14px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.card-presente button:active {
+  transform: scale(0.97);
+}
+
+.card-presente button:hover{
+    background-color: #b98282;
 }
 
 .card-presente p{
@@ -84,11 +93,14 @@ body{
 }
 
 nav{
+    justify-content: center;
     display: flex;
     gap: 20px;
     overflow-x: auto;
     padding: 10px 0;
     margin-bottom: 25px;
+    border-bottom: 1px solid #eadede;
+    padding-bottom: 15px;
     white-space: nowrap;
 }
 
@@ -96,8 +108,12 @@ nav a{
     text-decoration: none;
     color: #8f6060;
     font-size: 14px;
+    font-weight: normal;
 }
 
+nav a:hover{
+    color:#b98282;
+}
 section{
     padding: 40px 0;
 }
@@ -108,6 +124,7 @@ html{
 
 #pesquisaPresente{
     width: 100%;
+    color: #8f6060;
     padding: 14px 16px;
     margin-bottom: 25px;
     border: 1px solid #eadede;
@@ -116,4 +133,93 @@ html{
     outline: none;
     box-sizing: border-box;
     background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
+
+#inicio{
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 1px solid #eadede;
+    margin-bottom: 20px;
+}
+
+#inicio h1{
+    font-size: 32px;
+    color: #8f6060;
+    font-weight: normal;
+    
+}
+
+#inicio p{
+    color: #a87878;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.foto-casal{
+    display: flex;
+    justify-content:center;
+    margin-bottom: 25px;
+}
+
+.foto-casal img{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.data{
+    font-size: 18px !important;
+    letter-spacing: 4px;
+    color: #8f6060!important;
+    margin: 15px 0 !important;
+
+}
+
+.frase{
+    font-size: 20px !important;
+    font-style: italic;
+    color: #8f6060 !important;
+    margin: 20px 0 10px !important;
+}
+
+#agradecimentos{
+    text-align: center;
+    border-top: 1px solid #eadede;
+    margin-top: 20px;
+    padding: 60pz 20px;
+}
+
+#agradecimentos h2{
+    color:#8f6060;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+#agradecimentos p{
+    color: #a87878;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 12px;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  #inicio {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/*#713600 marrom
+#808000 verde oliva
+#ffb5c0 rosa claro
+#FFFD74 amarelo manteiga
+*/
