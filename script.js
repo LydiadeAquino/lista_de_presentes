@@ -102,8 +102,14 @@ pesquisa.addEventListener("input", () => {
     return nome.toLowerCase().includes(textoDigitado.toLowerCase());
     });
 
-    mostrarPresentes(resultado);
-    
+    if(resultado.length === 0){
+        const lista = document.getElementById("listaPresentes");
+        lista.innerHTML = `
+        <p class= "nao-encontrado">Presente não encontrado. Verifique o presente digitado.</p>
+        `;
+    }else{
+        mostrarPresentes(resultado);
+    }
 });
 
 carregarPresentes();
